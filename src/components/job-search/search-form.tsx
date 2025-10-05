@@ -137,6 +137,7 @@ export function SearchForm({ formAction, isPending }: SearchFormProps) {
                   <FormLabel>About the Role</FormLabel>
                   <FormControl>
                     <Textarea
+                      name="jobDescription"
                       placeholder="Paste the full job description here..."
                       className="min-h-[200px] resize-y"
                       {...field}
