@@ -134,7 +134,7 @@ export function SearchForm({ formAction, isPending }: SearchFormProps) {
               name="jobDescription"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Job Description</FormLabel>
+                  <FormLabel>About the Role</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Paste the full job description here..."
