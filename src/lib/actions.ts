@@ -1,8 +1,6 @@
 'use server';
 
 import { z } from 'zod';
-import { analyzeJobDescription } from '@/ai/flows/analyze-job-description';
-import { rankCandidates } from '@/ai/flows/rank-candidates-by-relevance';
 import { MOCK_CANDIDATES, addMockJob, addSearchToHistory } from '@/lib/data';
 import type { JobAnalysis, RankedCandidate } from '@/lib/types';
 import { revalidatePath } from 'next/cache';
@@ -20,23 +18,27 @@ export type SearchState = {
 };
 
 export async function findCandidatesAction(prevState: SearchState, formData: FormData): Promise<SearchState> {
-  const validatedFields = searchSchema.safeParse({
-    jobDescription: formData.get('jobDescription'),
-  });
-
-  if (!validatedFields.success) {
-    return {
-      status: 'error',
-      message: validatedFields.error.flatten().fieldErrors.jobDescription?.[0] || 'Invalid input.',
-      analysis: null,
-      candidates: null,
-    };
-  }
-
-  const { jobDescription } = validatedFields.data;
-
   try {
-    const analysis = await analyzeJobDescription(jobDescription);
+    const validatedFields = searchSchema.safeParse({
+      jobDescription: formData.get('jobDescription'),
+    });
+
+    if (!validatedFields.success) {
+      return {
+        status: 'error',
+        message: validatedFields.error.flatten().fieldErrors.jobDescription?.[0] || 'Invalid input.',
+        analysis: null,
+        candidates: null,
+      };
+    }
+
+    const { jobDescription } = validatedFields.data;
+
+    // Create simple mock analysis data instead of calling the AI
+    const analysis: JobAnalysis = {
+      keyRequirements: ['Experience with React', 'Strong problem-solving skills', 'Team collaboration'],
+      skills: ['JavaScript', 'TypeScript', 'React', 'CSS', 'HTML'],
+    };
     
     addSearchToHistory(jobDescription, analysis);
     revalidatePath('/history');
