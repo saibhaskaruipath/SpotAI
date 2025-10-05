@@ -15,6 +15,7 @@ export const MOCK_CANDIDATES: Candidate[] = [
     avatarUrl: getImageUrl('candidate-1'),
     profileUrl: '#',
     summary: 'Senior Frontend Engineer from Kuala Lumpur with 8+ years of experience in React, TypeScript, and Next.js. Passionate about building accessible and performant user interfaces for the SEA market.',
+    source: 'LinkedIn',
   },
   {
     id: '2',
@@ -22,6 +23,7 @@ export const MOCK_CANDIDATES: Candidate[] = [
     avatarUrl: getImageUrl('candidate-2'),
     profileUrl: '#',
     summary: 'Backend Developer based in Singapore, specializing in Python, Django, and PostgreSQL. Experienced in designing and implementing RESTful APIs and microservices for high-traffic applications.',
+    source: 'JobStreet',
   },
   {
     id: '3',
@@ -29,6 +31,7 @@ export const MOCK_CANDIDATES: Candidate[] = [
     avatarUrl: getImageUrl('candidate-3'),
     profileUrl: '#',
     summary: 'Full-stack developer from Singapore with a focus on the MERN stack. Skilled in creating seamless, end-to-end user experiences. Contributed to several open-source projects.',
+    source: 'LinkedIn',
   },
   {
     id: '4',
@@ -36,6 +39,7 @@ export const MOCK_CANDIDATES: Candidate[] = [
     avatarUrl: getImageUrl('candidate-4'),
     profileUrl: '#',
     summary: 'DevOps Engineer from Bangkok with expertise in Kubernetes, Docker, and Terraform on AWS. Proficient in setting up CI/CD pipelines using GitLab CI for scalable cloud infrastructure.',
+    source: 'Glints',
   },
   {
     id: '5',
@@ -43,6 +47,7 @@ export const MOCK_CANDIDATES: Candidate[] = [
     avatarUrl: getImageUrl('candidate-5'),
     profileUrl: '#',
     summary: 'Mid-level Software Engineer from Penang with 4 years of experience using Java and Spring Boot. Eager to tackle complex challenges and contribute to a fast-paced team in the fintech industry.',
+    source: 'JobStreet',
   },
   {
     id: '6',
@@ -50,6 +55,7 @@ export const MOCK_CANDIDATES: Candidate[] = [
     avatarUrl: getImageUrl('candidate-6'),
     profileUrl: '#',
     summary: 'Lead Data Scientist from Bangkok with a Ph.D. and 7 years of industry experience. Expert in machine learning and data visualization using Python (pandas, scikit-learn, TensorFlow).',
+    source: 'LinkedIn',
   },
 ];
 

@@ -7,6 +7,7 @@ export type Candidate = {
   avatarUrl: string;
   profileUrl: string;
   summary: string;
+  source: string;
 };
 
 export type RankedCandidate = RankCandidatesOutput[0] & {
@@ -14,6 +15,7 @@ export type RankedCandidate = RankCandidatesOutput[0] & {
   name: string;
   avatarUrl: string;
   profileUrl: string;
+  source: string;
 };
 
 export type JobPost = {
