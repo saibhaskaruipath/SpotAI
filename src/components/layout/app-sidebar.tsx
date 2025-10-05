@@ -42,11 +42,9 @@ const AppSidebar = () => {
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.href}>
               <Link href={item.href}>
-                <SidebarMenuButton asChild isActive={pathname === item.href} tooltip={item.label}>
-                  <React.Fragment>
+                <SidebarMenuButton isActive={pathname === item.href} tooltip={item.label}>
                     <item.icon />
                     <span>{item.label}</span>
-                  </React.Fragment>
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
