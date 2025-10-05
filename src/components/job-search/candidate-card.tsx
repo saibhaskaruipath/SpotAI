@@ -17,16 +17,16 @@ export function CandidateCard({ candidate }: CandidateCardProps) {
 
   return (
     <Card className="flex flex-col">
-      <CardHeader>
+      <CardHeader className="py-4">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Avatar className="h-12 w-12">
+            <Avatar className="h-10 w-10">
               <AvatarImage src={candidate.avatarUrl} alt={candidate.name} />
               <AvatarFallback>{candidate.name.charAt(0)}</AvatarFallback>
             </Avatar>
             <div>
-              <CardTitle className="text-lg">{candidate.name}</CardTitle>
-              <CardDescription>Relevance Score: {relevancePercentage}%</CardDescription>
+              <CardTitle className="text-base">{candidate.name}</CardTitle>
+              <CardDescription>Relevance: {relevancePercentage}%</CardDescription>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -48,13 +48,13 @@ export function CandidateCard({ candidate }: CandidateCardProps) {
           </div>
         </div>
       </CardHeader>
-      <CardContent className="flex-grow space-y-4">
+      <CardContent className="flex-grow space-y-3 py-0">
         <div>
           <Progress value={relevancePercentage} className="h-2" />
         </div>
         <p className="text-sm text-muted-foreground">{candidate.summary}</p>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="py-4">
         <div className="text-xs text-muted-foreground flex items-start gap-2">
             <Star className="w-3.5 h-3.5 mt-0.5 shrink-0 text-amber-500" />
             <p className="font-medium text-foreground/80">
