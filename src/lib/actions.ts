@@ -56,9 +56,10 @@ export async function findCandidatesAction(prevState: SearchState, formData: For
     };
   } catch (error) {
     console.error(error);
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
     return {
       status: 'error',
-      message: 'An unexpected error occurred while analyzing the job description. Please try again.',
+      message: `An unexpected error occurred: ${errorMessage}`,
       analysis: null,
       candidates: null,
     };
