@@ -41,19 +41,13 @@ export async function findCandidatesAction(prevState: SearchState, formData: For
     addSearchToHistory(jobDescription, analysis);
     revalidatePath('/history');
     
-    const candidateSummaries = MOCK_CANDIDATES.map(c => c.summary);
-    const rankedResults = await rankCandidates({ jobDescription, candidateSummaries });
+    // Return all mock candidates directly, adding a placeholder score and justification.
+    const candidatesWithDetails: RankedCandidate[] = MOCK_CANDIDATES.map(candidate => ({
+      ...candidate,
+      relevanceScore: Math.random() * (0.95 - 0.7) + 0.7, // Fake score for display
+      justification: "This is a sample candidate from our talent pool.",
+    })).sort((a, b) => b.relevanceScore - a.relevanceScore);
 
-    const candidatesWithDetails: RankedCandidate[] = rankedResults.map(ranked => {
-      const originalCandidate = MOCK_CANDIDATES.find(c => c.summary === ranked.candidateSummary);
-      return {
-        ...ranked,
-        id: originalCandidate?.id || 'unknown',
-        name: originalCandidate?.name || 'Unknown Candidate',
-        avatarUrl: originalCandidate?.avatarUrl || '',
-        profileUrl: originalCandidate?.profileUrl || '#',
-      };
-    }).sort((a, b) => b.relevanceScore - a.relevanceScore);
 
     return {
       status: 'success',
@@ -64,7 +58,7 @@ export async function findCandidatesAction(prevState: SearchState, formData: For
     console.error(error);
     return {
       status: 'error',
-      message: 'An unexpected error occurred while searching for candidates. Please try again.',
+      message: 'An unexpected error occurred while analyzing the job description. Please try again.',
       analysis: null,
       candidates: null,
     };
