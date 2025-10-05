@@ -1,4 +1,4 @@
-# JobScout AI
+# Spot AI
 
 This is a Next.js application that uses Generative AI to help recruiters find and rank candidates.
 

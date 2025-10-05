@@ -32,7 +32,7 @@ const AppSidebar = () => {
             <Button variant="ghost" size="icon" className="shrink-0 text-primary-foreground hover:bg-transparent">
                 <Bot className="size-6" />
             </Button>
-            <h1 className="font-headline text-lg font-semibold truncate">JobScout AI</h1>
+            <h1 className="font-headline text-lg font-semibold truncate">Spot AI</h1>
             <div className="grow" />
             <SidebarTrigger className="[&>svg]:text-primary-foreground" />
         </div>
@@ -40,7 +40,7 @@ const AppSidebar = () => {
       <SidebarContent>
         <SidebarMenu>
           {menuItems.map((item) => (
-            <SidebarMenuItem key={item.href}>
+             <SidebarMenuItem key={item.href}>
               <Link href={item.href}>
                 <SidebarMenuButton isActive={pathname === item.href} tooltip={item.label}>
                   <item.icon />
